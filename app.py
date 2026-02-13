@@ -110,7 +110,7 @@ if st.sidebar.button("🗑️ Clear Chat", use_container_width=True):
     st.rerun()
 
 # --- API Key Validation ---
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY")
 if not api_key or api_key == "your-key-here":
     st.error(
         "OpenAI API key not found. Please create a `.env` file with your key:\n\n"
